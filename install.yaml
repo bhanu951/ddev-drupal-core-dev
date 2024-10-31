@@ -26,13 +26,13 @@ project_files:
   - core-dev/src/Command/LintCommand.php
 
 post_install_actions:
-  - cp core-dev/phpunit-chrome.xml ../core/phpunit.xml
-  - perl -pi -e "s|DRUPAL_CORE_DDEV_URL|$DDEV_PRIMARY_URL|g" ../core/phpunit.xml
-  - cp core-dev/.env ../core/.env
+  - cp core-dev/phpunit-chrome.xml ../phpunit.xml
+  - perl -pi -e "s|DRUPAL_CORE_DDEV_URL|$DDEV_PRIMARY_URL|g" ../phpunit.xml
+  - cp core-dev/.env ../.env
   - cp core-dev/gitignore ../.gitignore
   - mkdir -p ../test_output
   - chmod +w ../test_output
-  - cd ../core && ddev yarn
+  - cd ../web/core && ddev yarn
 
 removal_actions:
   - |
