@@ -4,23 +4,27 @@ This is a DDEV addon for doing Drupal core development.
 
 We're in #ddev-for-core-dev on [Drupal Slack](https://www.drupal.org/community/contributor-guide/reference-information/talk/tools/slack) (but please try and keep work and feature requests in Issues where it's visible to all 🙏)
 
-```
-git clone https://git.drupalcode.org/project/drupal.git drupal
-cd drupal
-ddev config --omit-containers=db --disable-settings-management
-ddev start
-ddev get justafish/ddev-drupal-core-dev
-ddev restart
-ddev composer install
+## Installation
 
-# See included commands
-ddev drupal list
+This addon assumes project has the Composer structure provided by the
+joachim-n/drupal-core-development-project Composer project template.
+
+```
+# Install Composer project template
+ddev config --project-type=drupal --php-version=8.3
+ddev start
+ddev composer create joachim-n/drupal-core-development-project
+ddev config --update
+ddev restart
+
+# Install this add-on
+ddev get justafish/ddev-drupal-core-dev
 
 # Install drupal
-ddev drupal install
+ddev drush si -y --account-pass==admin
 
 # Run PHPUnit tests
-ddev phpunit core/modules/sdc
+ddev phpunit web/core/modules/sdc
 
 # Run Nightwatch tests (currently only runs on Chrome)
 ddev nightwatch --tag core
