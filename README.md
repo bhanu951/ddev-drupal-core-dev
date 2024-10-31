@@ -18,7 +18,7 @@ ddev config --update
 ddev restart
 
 # Install this add-on
-ddev get justafish/ddev-drupal-core-dev
+ddev add-on get justafish/ddev-drupal-core-dev
 
 # Install drupal
 ddev drush si -y --account-pass==admin
