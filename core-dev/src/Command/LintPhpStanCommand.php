@@ -21,7 +21,8 @@ class LintPhpStanCommand extends Command {
      * {@inheritdoc}
      */
     protected function execute(InputInterface $input, OutputInterface $output): int {
-        $command = "php vendor/bin/phpstan analyze --configuration=./core/phpstan.neon.dist --error-format=table";
+        $doc_root = getenv('DDEV_DOCROOT') . '/';
+        $command = "php vendor/bin/phpstan analyze --configuration=./{$doc_root}core/phpstan.neon.dist --error-format=table";
         $phpcs = Process::fromShellCommandline($command);
         $output->writeln($command);
         $phpcs->setTimeout(0);
