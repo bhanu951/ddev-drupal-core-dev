@@ -3,12 +3,11 @@
 
 namespace DrupalCoreDev\Command;
 
-use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Process\Process;
 
-class LintPhpStanCommand extends Command {
+class LintPhpStanCommand extends CommandBase {
     /**
      * {@inheritdoc}
      */
@@ -21,7 +20,7 @@ class LintPhpStanCommand extends Command {
      * {@inheritdoc}
      */
     protected function execute(InputInterface $input, OutputInterface $output): int {
-        $doc_root = getenv('DDEV_DOCROOT') . '/';
+        $doc_root = $this->getWebRoot() . '/';
         $command = "php vendor/bin/phpstan analyze --configuration=./{$doc_root}core/phpstan.neon.dist --error-format=table";
         $phpcs = Process::fromShellCommandline($command);
         $output->writeln($command);

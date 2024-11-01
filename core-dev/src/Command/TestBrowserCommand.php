@@ -3,7 +3,6 @@
 
 namespace DrupalCoreDev\Command;
 
-use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputOption;
@@ -11,7 +10,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use Symfony\Component\Process\Process;
 
-class TestBrowserCommand extends Command {
+class TestBrowserCommand extends CommandBase {
     /**
      * {@inheritdoc}
      */
@@ -26,6 +25,7 @@ class TestBrowserCommand extends Command {
      */
     protected function execute(InputInterface $input, OutputInterface $output): int {
         $io = new SymfonyStyle($input, $output);
+        $doc_root = $this->getWebRoot() . '/';
 
         $browser = $input->getArgument('browser');
         if (!in_array($browser, ['firefox', 'chrome'])) {
@@ -34,7 +34,7 @@ class TestBrowserCommand extends Command {
         }
 
         $src = __DIR__ . '/../../phpunit-' . $browser . '.xml';
-        $dest = __DIR__ . '/../../../../core/phpunit.xml';
+        $dest = __DIR__ . '/../../../../' . $doc_root . 'core/phpunit.xml';
         if (!copy($src, $dest)) {
           $io->getErrorStyle()->error("File $src could not be copied to $dest");
           return 1;

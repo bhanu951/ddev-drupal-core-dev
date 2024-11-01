@@ -6,13 +6,12 @@ namespace DrupalCoreDev\Command;
 use Drupal\Core\Database\ConnectionNotDefinedException;
 use Drupal\Core\DrupalKernel;
 use Drupal\Core\Site\Settings;
-use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use Symfony\Component\HttpFoundation\Request;
 
-abstract class BootCommand extends Command {
+abstract class BootCommand extends CommandBase {
   /**
    * The class loader.
    *

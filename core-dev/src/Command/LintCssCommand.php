@@ -3,13 +3,12 @@
 
 namespace DrupalCoreDev\Command;
 
-use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use Symfony\Component\Process\Process;
 
-class LintCssCommand extends Command {
+class LintCssCommand extends CommandBase {
     /**
      * {@inheritdoc}
      */
@@ -22,9 +21,10 @@ class LintCssCommand extends Command {
      * {@inheritdoc}
      */
     protected function execute(InputInterface $input, OutputInterface $output): int {
+        $doc_root = $this->getWebRoot() . '/';
         $io = new SymfonyStyle($input, $output);
-        $yarn = getcwd() . '/core/.yarn';
-        $node_modules = getcwd() . '/core/node_modules';
+        $yarn = getcwd() . $doc_root . 'core/.yarn';
+        $node_modules = getcwd() . $doc_root . 'core/node_modules';
 
         // Check if dependencies folder exists before to start.
         if(!file_exists($yarn) || !file_exists($node_modules)) {

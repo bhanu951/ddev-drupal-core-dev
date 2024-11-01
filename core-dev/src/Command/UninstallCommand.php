@@ -3,12 +3,11 @@
 
 namespace DrupalCoreDev\Command;
 
-use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Filesystem\Filesystem;
 
-class UninstallCommand extends Command {
+class UninstallCommand extends CommandBase {
     /**
      * {@inheritdoc}
      */

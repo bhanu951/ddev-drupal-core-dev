@@ -3,14 +3,13 @@
 
 namespace DrupalCoreDev\Command;
 
-use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use Symfony\Component\Process\Process;
 
-class TestCommand extends Command {
+class TestCommand extends CommandBase {
     /**
      * {@inheritdoc}
      */
@@ -25,9 +24,10 @@ class TestCommand extends Command {
      * {@inheritdoc}
      */
     protected function execute(InputInterface $input, OutputInterface $output): int {
+        $doc_root = $this->getWebRoot() . '/';
         $io = new SymfonyStyle($input, $output);
 
-        $command = "php ./core/scripts/run-tests.sh --php /usr/bin/php --color --keep-results --concurrency 4 --repeat 1 --sqlite './sites/default/files/.sqlite' --verbose --non-html --all";
+        $command = "php .{$doc_root}core/scripts/run-tests.sh --php /usr/bin/php --color --keep-results --concurrency 4 --repeat 1 --sqlite '.{$doc_root}sites/default/files/.sqlite' --verbose --non-html --all";
         $tests = Process::fromShellCommandline($command);
         $output->writeln($command);
         $tests->setTimeout(0);
