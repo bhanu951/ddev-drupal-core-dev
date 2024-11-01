@@ -37,7 +37,7 @@ post_install_actions:
 
 removal_actions:
   - |
-    for item in ../core/phpunit.xml ../core/.env ../.gitignore; do 
+    for item in ../core/phpunit.xml ../core/.env ../.gitignore; do
       if grep '#ddev-generated' ${item} >/dev/null; then
         rm -f ${item}
       fi
