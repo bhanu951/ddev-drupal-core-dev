@@ -1,5 +1,7 @@
 #!/bin/bash
 
+#ddev-generated
+
 ## Description: This script performs cspell checks.
 ## Usage: cspell-check [flags]
 ## Example: "ddev cspell-check"

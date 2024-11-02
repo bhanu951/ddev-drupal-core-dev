@@ -1,5 +1,7 @@
 #!/bin/bash
 
+#ddev-generated
+
 ## Description: Run phpcs
 ## Usage: phpcs [flags] [args]
 ## Example: "ddev phpcs core/modules/user/src/RegisterForm.php"

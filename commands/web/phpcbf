@@ -1,5 +1,7 @@
 #!/bin/bash
 
+#ddev-generated
+
 ## Description: Run phpcbf
 ## Usage: phpcbf [flags] [args]
 ## Example: "ddev phpcbf core/modules/user/src/RegisterForm.php"

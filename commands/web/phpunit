@@ -1,6 +1,7 @@
 #!/bin/bash
 
 #ddev-generated
+
 ## Description: Run PHPUnit
 ## Usage: phpunit
 ## Example: "ddev phpunit core/modules/user/tests/src/Functional/UserAdminTest.php"

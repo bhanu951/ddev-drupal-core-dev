@@ -1,5 +1,7 @@
 #!/bin/bash
 
+#ddev-generated
+
 ## Description: Clean up test results
 ## Usage: tests-cleanup
 ## Example: "ddev tests-cleanup"

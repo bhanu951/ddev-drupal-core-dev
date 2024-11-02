@@ -1,5 +1,7 @@
 #!/bin/bash
 
+#ddev-generated
+
 ## Description: Performs a default drupal installation
 ## Usage: install
 ## Example: "ddev install"

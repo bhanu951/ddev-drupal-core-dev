@@ -1,6 +1,7 @@
 #!/bin/bash
 
 #ddev-generated
+
 ## Description: Run Nightwatch
 ## Usage: nightwatch
 ## Example: ddev nightwatch --tag core

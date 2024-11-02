@@ -1,5 +1,7 @@
 #!/bin/bash
 
+#ddev-generated
+
 ## Description: Run phpstan
 ## Usage: phpstan [flags] [args]
 ## Example: "ddev phpstan core/modules/migrate_drupal_ui"
