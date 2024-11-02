@@ -31,8 +31,9 @@ post_install_actions:
   - perl -pi -e "'$DDEV_DOCROOT' and s|DDEV_DOCROOT|$DDEV_DOCROOT/|g" ../phpunit.xml
   - cp core-dev/.env ../.env
   - cp core-dev/gitignore ../.gitignore
-  - mkdir -p ../web/sites/simpletest/browser_output
-  - chmod +w ../web/sites/simpletest/browser_output
+  - mkdir -p ../test_output
+  - chmod +w ../test_output
+  - cd ../web/core && ddev yarn
 
 removal_actions:
   - |
@@ -41,4 +42,4 @@ removal_actions:
         rm -f ${item}
       fi
     done
-  - rm -rf ../web/sites/simpletest/browser_output
+  - rm -rf ../test_output
