@@ -42,6 +42,7 @@ ddev drush si -y --account-pass==admin
 ```bash
 ddev phpcs core/modules/user/src/RegisterForm.php (from repos/drupal directory)
 ddev phpcbf core/modules/user/src/RegisterForm.php (from repos/drupal directory)
+ddev phpstan core/modules/user/src/RegisterForm.php (from repos/drupal directory)
 ddev phpunit core/modules/user/tests/src/Functional/UserAdminTest.php (from repos/drupal directory)
 ddev code-check (ddev equivalent of running sh core/scripts/dev/commit-code-check.sh)
 ddev cspell-check (Checks for forbidden and new words which are not present in dictonary)
