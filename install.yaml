@@ -10,6 +10,13 @@ project_files:
   - commands/web/drupal
   - commands/web/phpunit
   - commands/web/nightwatch
+  - commands/web/install
+  - commands/web/code-check
+  - commands/web/cspell-check
+  - commands/web/phpcbf
+  - commands/web/phpcs
+  - commands/web/phpstan
+  - commands/web/tests-cleanup
   - core-dev/gitignore
   - core-dev/.env
   - core-dev/src/Command/AdminLoginCommand.php
