@@ -33,8 +33,6 @@ project_files:
   - core-dev/src/Command/LintCommand.php
 
 post_install_actions:
-  - mkdir -p ../repos
-  - git clone --branch=11.x https://git.drupalcode.org/project/drupal.git ../repos/drupal
   - cp ../repos/drupal/core/phpunit.xml.dist ../phpunit.xml
   - sed -i '2s/^/#ddev-generated\n/' ../phpunit.xml
   - perl -pi -e "s|DRUPAL_CORE_DDEV_URL|$DDEV_PRIMARY_URL|g" ../phpunit.xml
