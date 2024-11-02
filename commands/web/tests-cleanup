@@ -9,13 +9,13 @@
 TOP_LEVEL="/var/www/html"
 cd $TOP_LEVEL
 
-if [ ! -d "web/test_output" ]
+if [ ! -d "./test_output" ]
 then
-  echo "The expected folder web/test_output does not exist."
+  echo "The expected folder test_output does not exist."
   exit 2
 fi
 
-rm web/test_output/*.counter
-rm web/test_output/*.html
+rm ./test_output/*.counter
+rm ./test_output/*.html
 
 echo "Test files removed."
