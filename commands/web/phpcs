@@ -14,5 +14,5 @@ if ! command -v /var/www/html/vendor/bin/phpcs >/dev/null; then
   exit 2
 fi
 
-/var/www/html/vendor/bin/phpcs --standard=Drupal,DrupalPractice $@ || \
+/var/www/html/vendor/bin/phpcs --standard="$TOP_LEVEL/core/phpcs.xml.dist $@ || \
 echo "Return code ignored"
