@@ -1,0 +1,16 @@
+#!/bin/bash
+
+## Description: Run phpcs
+## Usage: phpcs [flags] [args]
+## Example: "ddev phpcs core/modules/user/src/RegisterForm.php"
+
+TOP_LEVEL="/var/www/html/repos/drupal"
+cd $TOP_LEVEL
+
+if ! command -v /var/www/html/vendor/bin/phpcs >/dev/null; then
+  echo "phpcs is not in PATH in the web container. You probably forgot to 'ddev composer install'"
+  exit 2
+fi
+
+/var/www/html/vendor/bin/phpcs --standard=Drupal,DrupalPractice $@ || \
+echo "Return code ignored"

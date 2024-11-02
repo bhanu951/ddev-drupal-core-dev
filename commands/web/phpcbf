@@ -1,0 +1,16 @@
+#!/bin/bash
+
+## Description: Run phpcbf
+## Usage: phpcbf [flags] [args]
+## Example: "ddev phpcbf core/modules/user/src/RegisterForm.php"
+
+TOP_LEVEL="/var/www/html/repos/drupal"
+cd $TOP_LEVEL
+
+if ! command -v /var/www/html/vendor/bin/phpcbf >/dev/null; then
+  echo "phpcbf is not in PATH in the web container. You probably forgot to 'ddev composer install'"
+  exit 2
+fi
+
+/var/www/html/vendor/bin/phpcbf --standard=Drupal,DrupalPractice $@ || \
+echo "Return code ignored"

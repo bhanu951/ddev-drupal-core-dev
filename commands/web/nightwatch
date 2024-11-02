@@ -7,4 +7,9 @@
 
 echo "Clearing old webdriver sessions"
 curl -f -s http://chrome:4444/status | jq -r '.value.nodes[].slots[].session.sessionId' | while read -r session; do if [ "$session" != "null" ]; then curl -X DELETE "http://chrome:4444/session/$session"; fi; done
-cd web/core && yarn test:nightwatch "$@"
+
+if [ ! -d /var/www/html/repos/drupal/core/node_modules ]; then
+  yarn --cwd /var/www/html/repos/drupal/core install
+fi
+
+yarn --cwd /var/www/html/repos/drupal/core test:nightwatch $@
